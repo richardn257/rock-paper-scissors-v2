@@ -47,8 +47,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let userInput = prompt("Choose rock, paper, or scissors: ", "rock");
+  let userWins = 0, computerWins = 0, winner;
   for (let i = 0; i < 5; i++) {
-    playRound(userInput, getComputerChoice());
+    let userInput = prompt("Choose rock, paper, or scissors: ", "rock");
+    winner = playRound(userInput, getComputerChoice());
+    if (winner == "user")
+      userWins++;
+    else
+      computerWins++;
   }
+  if (userWins > computerWins)
+    console.log("You won the game!")
+  else if (userWins < computerWins)
+    console.log("You lost the game!")
+  else
+    console.log("The game is tied!")
 }
