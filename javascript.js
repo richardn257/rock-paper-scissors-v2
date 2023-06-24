@@ -11,47 +11,56 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock") {
     if (computerSelection == "rock") {
       // textResult.textContent = "Tie! Both are Rock";
+      console.log("Tie! Both are Rock");
     }
     else if (computerSelection == "paper") {
       // textResult.textContent = "You Lose! Paper beats Rock";
       // compWin++;
+      console.log("You Lose! Paper beats Rock");
       result = "computer";
     }
     else {
       // textResult.textContent = "You win! Rock beats Scissors"
       // userWin++;
+      console.log("You win! Rock beats Scissors");
       result = "user";
     }
   } else if (playerSelection == "paper") {
     if (computerSelection == "rock") {
       // textResult.textContent = "You Win! Paper beats Rock";
       // userWin++;
+      console.log("You Win! Paper beats Rock");
       result = "user";
     }
     else if (computerSelection == "paper") {
       // textResult.textContent = "Tie! Both are Paper";
+      console.log("Tie! Both are Paper")
     }
     else {
       // textResult.textContent = "You Lose! Scissor beats Paper";
       // compWin++;
+      console.log("You Lose! Scissor beats Paper");
       result = "computer";
     }
   } else {
     if (computerSelection == "rock") {
       // textResult.textContent = "You Lose! Rock beats Scissor";
       // compWin++;
+      console.log("You Lose! Rock beats Scissor");
       result = "computer";
     }
     else if (computerSelection == "paper") {
       // textResult.textContent = "You Win! Scissor beats Paper";
       // userWin++;
+      console.log("You Win! Scissor beats Paper");
       result = "user";
     }
     else {
       // textResult.textContent = "Tie! Both are Scissor";
+      console.log("Tie! Both are Scissor");
     }
-    return result;
-}
+  }
+  return result;
 }
 
 function game() {
