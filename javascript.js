@@ -63,20 +63,36 @@ function playRound(playerSelection, computerSelection) {
   return result;
 }
 
-function game() {
-  let userWins = 0, computerWins = 0, winner;
-  for (let i = 0; i < 5; i++) {
-    let userInput = prompt("Choose rock, paper, or scissors", "rock");
-    winner = playRound(userInput, getComputerChoice());
-    if (winner == "user")
-      userWins++;
-    else if (winner == "computer")
-      computerWins++;
-  }
-  if (userWins > computerWins)
-    console.log("You won the game!")
-  else if (userWins < computerWins)
-    console.log("You lost the game!")
-  else
-    console.log("The game is tied!")
-}
+const playerRock = document.querySelector('.rock');
+playerRock.addEventListener('click', () => {
+  playRound('rock', getComputerChoice());
+});
+
+const playerPaper = document.querySelector('.paper');
+playerRock.addEventListener('click', () => {
+  playRound('paper', getComputerChoice());
+});
+
+const playerScissors = document.querySelector('.scissors');
+playerRock.addEventListener('click', () => {
+  playRound('scissors', getComputerChoice());
+});
+
+
+// function game() {
+//   let userWins = 0, computerWins = 0, winner;
+//   for (let i = 0; i < 5; i++) {
+//     let userInput = prompt("Choose rock, paper, or scissors", "rock");
+//     winner = playRound(userInput, getComputerChoice());
+//     if (winner == "user")
+//       userWins++;
+//     else if (winner == "computer")
+//       computerWins++;
+//   }
+//   if (userWins > computerWins)
+//     console.log("You won the game!")
+//   else if (userWins < computerWins)
+//     console.log("You lost the game!")
+//   else
+//     console.log("The game is tied!")
+// }
