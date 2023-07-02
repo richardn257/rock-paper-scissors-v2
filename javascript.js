@@ -24,6 +24,22 @@ function getComputerChoice() {
 }
 
 let textResult = document.querySelector('.roundResults');
+let computerScore = document.querySelector('.computerScore');
+let userScore = document.querySelector('.userScore');
+const hidden = document.querySelector('.hidden');
+const playAgain = document.createElement('button');
+
+playAgain.textContent = 'Play Again'
+playAgain.addEventListener('click', () => {
+  hidden.removeChild(playAgain);  
+  textResult.textContent = "";
+  computerScore.textContent = 0;
+  userScore.textContent = 0;
+  compWin = 0;
+  userWin = 0;
+});
+
+
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
@@ -66,14 +82,18 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   // return result;
-  let runningScore = document.querySelector('.runningScore');
-  runningScore.textContent = `Computer: ${compWin} User: ${userWin}`;
+  computerScore.textContent = compWin;
+  userScore.textContent = userWin;
 
   if (compWin == 5) {
     textResult.textContent = "The computer wins!";
   }
   else if (userWin == 5) {
-    textResult.textContent = "The user wins!";
+    textResult.textContent = "You win!";
+  }
+
+  if (compWin == 5 || userWin == 5) {
+    hidden.appendChild(playAgain);
   }
 }
 
