@@ -13,14 +13,13 @@ playerScissors.addEventListener('click', () => {
   playRound('scissors', getComputerChoice());
 });
 
-let textResult = document.querySelector('.results');
-
 function getComputerChoice() {
   let choices = ["Rock", "Paper", "Scissors"];
   let randomNum = Math.floor(Math.random() * 99) % 3;
   return choices[randomNum];
 }
 
+let textResult = document.querySelector('.roundResults');
 let compWin = 0, userWin = 0;
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
@@ -29,48 +28,54 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock") {
     if (computerSelection == "rock") {
       textResult.textContent = "Tie! Both are Rock";
-    }
-    else if (computerSelection == "paper") {
+    } else if (computerSelection == "paper") {
       textResult.textContent = "You Lose! Paper beats Rock";
-      // compWin++;
+      compWin++;
       result = "computer";
-    }
-    else {
+    } else {
       textResult.textContent = "You win! Rock beats Scissors";
-      // userWin++;
+      userWin++;
       result = "user";
     }
   } else if (playerSelection == "paper") {
     if (computerSelection == "rock") {
       textResult.textContent = "You Win! Paper beats Rock";
-      // userWin++;
+      userWin++;
       result = "user";
-    }
-    else if (computerSelection == "paper") {
+    } else if (computerSelection == "paper") {
       textResult.textContent = "Tie! Both are Paper";
-    }
-    else {
+    } else {
       textResult.textContent = "You Lose! Scissor beats Paper";
-      // compWin++;
+      compWin++;
       result = "computer";
     }
   } else {
     if (computerSelection == "rock") {
       textResult.textContent = "You Lose! Rock beats Scissor";
-      // compWin++;
+      compWin++;
       result = "computer";
-    }
-    else if (computerSelection == "paper") {
+    } else if (computerSelection == "paper") {
       textResult.textContent = "You Win! Scissor beats Paper";
-      // userWin++;
+      userWin++;
       result = "user";
-    }
-    else {
+    } else {
       textResult.textContent = "Tie! Both are Scissor";
     }
   }
-  return result;
+  // return result;
+  let runningScore = document.querySelector('.runningScore');
+  runningScore.textContent = `Computer: ${compWin} User: ${userWin}`;
+
+  if (compWin == 5) {
+    textResult.textContent = "The computer wins!";
+  }
+  else if (userWin == 5) {
+    textResult.textContent = "The user wins!";
+  }
 }
+
+
+
 
 
 // function game() {
